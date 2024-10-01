@@ -42,3 +42,32 @@ switch (day) {
 for (let i = 0; i < numbersArray.length; i++) {
     console.log(`Number: ${numbersArray[i]}`);
 }
+
+// e. Functional Programming
+
+// i. Determine if a number is odd or even
+function isOddOrEven(num) {
+    return num % 2 === 0 ? "Even" : "Odd";
+}
+
+console.log(`${number} is ${isOddOrEven(number)}.`);
+
+// ii. Determine if a number is prime
+function isPrime(num) {
+    if (num <= 1) return false;
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) return false;
+    }
+    return true;
+}
+
+console.log(`${number} is ${isPrime(number) ? 'a prime number' : 'not a prime number'}.`);
+
+// iii. Determine if a string is a palindrome
+function isPalindrome(str) {
+    const reversedStr = str.split('').reverse().join('');
+    return str === reversedStr;
+}
+
+let testString = "madam";
+console.log(`"${testString}" is ${isPalindrome(testString) ? 'a palindrome' : 'not a palindrome'}.`);
