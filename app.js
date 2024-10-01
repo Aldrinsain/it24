@@ -5,13 +5,10 @@ let greeting = "Hello, World!"; // String
 let numbersArray = [1, 2, 3];   // Array
 let user = { name: "Alice", age: 30 }; // Object
 
-// b. // b. Arithmetic and Logical Operators
-let sum = number + 10;                     // Addition
-let isPositive = number > 0;                // Logical Operator
-let product = number * 2;                   // Multiplication
-let sum = number + 10;                     // Addition
-let isPositive = number > 0;                // Logical Operator
-let product = number * 2;                   // Multiplication
+// b. Arithmetic and Logical Operators
+let sum = number + 10;             // Addition
+let isPositive = number > 0;        // Logical Operator
+let product = number * 2;           // Multiplication
 
 // c. Conditional Statements
 
