@@ -92,7 +92,7 @@ class LeafletMap {
     }
 
     dataBa() {
-        this.addMarker(8.359134, 124.868537, 'BA building');
+        this.addMarker(8.359134, 124.868537, 'BA building')
         this.attendanceCountBA++;
         this.updateLogDisplay();
     }
