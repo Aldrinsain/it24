@@ -10,99 +10,84 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <title>Applet 2 - Leaflet Map</title>
     <style>
-        .applet-container{
-            margin-top: 1rem;
-            margin-left: 2rem;
-            width: 90%;
-        }
-
-        #map {
-            height: 600px;
-        }
+      body{
+          background-color: rgb(255, 255, 255);
+          color: rgb(20, 3, 3);
+      }
+      .container{
+          width: 100%;
+          margin-top: 2rem;
+          margin-left: 2rem;
+          justify-content: center;
+      }
+      #map{
+          width: 100%;
+          height: 450px;
         
-    </style>
-    
+      }
+
+
+      .btn-container h4{
+          margin-bottom: 1.5rem;
+      }
+      .btn-container button{
+         margin-bottom: 1.5rem;
+      }
+
+      .btn-container #btnclear {
+         margin-left: 15rem;
+      }
+      
+  </style>
+  
 </head>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">Home</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Applets
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="applet-1.html">Applet 1</a></li>
-              <li><a class="dropdown-item" href="applet-2.html">Applet 2</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-          </li>
-        </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
+<nav class="navbar navbar-expand-lg" style="background-color: rgba(252, 243, 243, 0.847);">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="about.html">about me</a>
+      <li class="nav-item dropdown">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Applets
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="applet-2.html">leaflet and open street map</a></li>
+            <li><a class="dropdown-item" href="applet-1.html">event button logger</a></li>
+          </ul>
+        </li>
+      
     </div>
+  </div>
+
 </nav>
 
 <body>
-    <div class="applet-container">
-        <h3>Leaflet Map Basics</h3>
-        <div id="map"></div>
-      
-    </div>
-   
-<script>
-class LeafletMap {
 
-    constructor(containerId, center, zoom) {
-        this.map = L.map(containerId).setView(center, zoom);
-        this.initTileLayer();
-    }
-
-    initTileLayer() {
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(this.map);
-    }
-
-    addMarker(lat, lng, message) {
-        const marker = L.marker([lat, lng]).addTo(this.map);
-        marker.bindPopup(message);
-    }
-
-    loadMarkersFromJson(url) {
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                data.forEach(marker => {
-                    this.addMarker(marker.latitude, marker.longitude, marker.message);
-                });
-            })
-            .catch(error => console.error('Error loading markers:', error));
-    }
-}
-
-const myMap = new LeafletMap('map', [8.360004, 124.868419], 18);
-
-/*
-myMap.addMarker(8.359735, 124.869206, 'CCS Faculty Office');
-myMap.addMarker(8.359639,124.869179, 'CCS Laboratory 1');
-myMap.addMarker(8.359554,124.869153, 'CCS Laboratory 2');
-*/
-
-myMap.loadMarkersFromJson('applet-2.json');
-
+  
+  <div class="container">
+      <h2>Leaflet Map</h2>
+      <div id="map"></div>
+      <div class="btn-container">
+        <h4 id="logCount">Attendance Count: </h4>
+        <button class="btn btn-primary" id="btn">SC Building</button>
+        <h4 id="logCountBA">Attendance Count: </h4>
+        <button class="btn btn-primary" id="btn1">BA building</button>
+            <h4 id="logCountCCS">Attendance Count: </h4>
+            <button class="btn btn-primary" id="btn2">CSS Laboratory 1</button>
+                    <div id="logContainer"></div> 
+                    <button class="btn btn-primary" id="btnclear">Clear</button>
+      </div>
+        
+  </div>
 </script>
+<script src="applet-2.js"></script>
 </body>
 
 </html>
