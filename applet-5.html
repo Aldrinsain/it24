@@ -49,6 +49,7 @@
                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="applet-2.html">leaflet and open street map</a></li>
                       <li><a class="dropdown-item" href="applet-1.html">event button logger</a></li>
+                      
                     </ul>
                   </li>
                 
@@ -65,4 +66,46 @@
 
     <body>
 
-        
+        <div class="container text-center">
+            <h1 style="text-align: center; font-weight: bold; margin-top: 2rem;">OpenWeather App</h1>
+            <div class="row">
+                <div class="col">
+                    <div class="contain" style="margin-top: 2rem;">
+                        <h3>Apikey</h3>
+                        <input type="text" id="apiInput" placeholder="Enter API key" />
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
+                <div class="col">
+                    <div class="container">
+
+                        <input type="text" id="cityInput" placeholder="Enter city name" />
+                        <button id="getWeatherBtn" class="btn btn-primary" style="margin-left: 1rem;">Get
+                            Weather</button>
+                        <button id="getLocationBtn" class="btn btn-secondary" style="margin-left: 0.5rem;">Use My
+                            Location</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div id="weatherCard" class="weather-card" style="display: none;  background: linear-gradient(to right, #ffa351, #ffbe7b);
+            border: 1px solid #ccc; border-radius: 8px; padding: 20px; margin-bottom: 3rem;">
+                            <br>
+                            <h2 id="cityName"></h2>
+                            <p id="temperature"></p>
+                            <p id="description"></p>
+                            <p id="humidity"></p>
+                            <p id="windSpeed"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script src="applet-5.js"></script>
+    </body>
+
+</html>
